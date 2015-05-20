@@ -188,7 +188,7 @@ public class ThriftSyncConnectionFactoryImpl implements ConnectionFactory<Cassan
                 socket.getSocket().setSoLinger(false, 0);
 
                 setTimeout(cpConfig.getSocketTimeout());
-                transport = new TFramedTransport(socket);
+                transport = new TFramedTransport(socket, Integer.MAX_VALUE);
                 if(!transport.isOpen())
                     transport.open();
 
